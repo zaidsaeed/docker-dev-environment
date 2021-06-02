@@ -6,4 +6,4 @@ RUN npm install
 
 COPY . .
 EXPOSE 2000
-CMD [ "node", "index.js" ]
+CMD ["npm", "run", "dev"]

@@ -12,6 +12,20 @@ docker build . -t image-name
 docker run -d -p 5000:2000 --name node-app image-name
 docker exec -it container-name bash
 
+### Running a container with a bind mount volume
+
+docker run -d -p 5000:2000 --name node-app image-name -v pathtoFolderonLocalMachine:pathtoFolderOnContainer
+
+##command shell
+docker run -d -p 5000:2000 --name node-app image-name -v %cd%:/app
+
+##powershell
+-v ${pwd}
+
+##mac/linux
+-v $(pwd)
+
 ### stopping a container
 
+docker rmi image-name
 docker rm container-name -f
