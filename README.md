@@ -14,18 +14,21 @@ docker exec -it container-name bash
 
 ### Running a container with a bind mount volume
 
-docker run -d -p 5000:2000 --name node-app image-name -v pathtoFolderonLocalMachine:pathtoFolderOnContainer
+docker run -v pathtoFolderonLocalMachine:pathtoFolderOnContainer -d -p 5000:2000 --name node-app image-name
 
-##command shell
-docker run -d -p 5000:2000 --name node-app image-name -v %cd%:/app
+## command shell
 
-##powershell
+docker run -v %cd%:/app -d -p 5000:2000 --name node-app image-name
+
+## powershell
+
 -v ${pwd}
 
-##mac/linux
+## mac/linux
+
 -v $(pwd)
 
 ### stopping a container
 
-docker rmi image-name
 docker rm container-name -f
+docker rmi image-name
