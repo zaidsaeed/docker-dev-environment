@@ -5,5 +5,6 @@ COPY package.json .
 RUN npm install
 
 COPY . .
-EXPOSE 2000
+ENV PORT 2000
+EXPOSE $PORT
 CMD ["npm", "run", "dev"]
