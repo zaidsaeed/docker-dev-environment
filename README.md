@@ -51,3 +51,9 @@ docker rmi image-name
 
 docker volume ls
 docker volume prune
+
+### Docker-compose
+
+docker-compose only rebuilds a new image if one DOES NOT already exist, the --build command is needed to force a new image to be built
+
+docker-compose up -d --build
