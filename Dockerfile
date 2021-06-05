@@ -1,10 +1,10 @@
 FROM node
 WORKDIR ./app
 COPY package.json .
-
-RUN npm install
+ARG ENV
+RUN if [ "$ENV" = "PROD" ] ; then npm install --only=prod; else npm install ; fi
 
 COPY . .
-ENV PORT 2000
+ENV PORT 4000
 EXPOSE $PORT
-CMD ["npm", "run", "dev"]
+CMD ["node", "index.js"]
